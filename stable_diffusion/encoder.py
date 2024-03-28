@@ -72,7 +72,7 @@ class VAE_Encoder(nn.Module):
         for module in self:
             # modules that include stride i.e. conv2d
             if getattr(module, 'stride', None) == (2, 2):
-                # setting asymmetric padding i.e. on right and left of the image tensor
+                # setting asymmetric padding i.e. on right and bottom of the image tensor
                 # (left, right, top, bottom)
                 x = F.pad(x, (0, 1, 0, 1))
 
@@ -94,7 +94,7 @@ class VAE_Encoder(nn.Module):
         x = mean + std * noise
 
         # scale the output by a constant
-        x *= 0.18215 # explained in their papaer
+        x *= 0.18215 # explained in their paper
 
         return x
 
