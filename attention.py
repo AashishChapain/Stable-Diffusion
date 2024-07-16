@@ -48,12 +48,6 @@ class SelfAttention(nn.Module):
         output = output.reshape(input_shape)
 
         # (batch_size, seq_len, dim) size
-        output = self.out_proj(output)
+        input = self.out_proj(output)
 
         return output
-
-def random():
-    print("hello world")
-
-def add(a, b):
-    print(a+b)
