@@ -52,4 +52,5 @@ class SelfAttention(nn.Module):
 
         return output
 
-
+def random():
+    print("hello world")
